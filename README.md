@@ -1,43 +1,73 @@
 # 📅 Gestion de rendez-vous Parents-Profs
 
 Projet E6 – BTS SIO SLAM – Session 2025  
-Développement d’une application web permettant aux parents d’élèves de prendre rendez-vous avec les enseignants d’un établissement scolaire.
+Application web permettant d’organiser efficacement les rencontres entre les parents d’élèves et les enseignants.
 
 ---
 
-## 🔍 Description
+## 🧠 Objectif du projet
 
-Ce projet a été réalisé dans le cadre du BTS SIO option SLAM.  
-Il répond au besoin d’un établissement scolaire souhaitant automatiser la gestion des rendez-vous entre parents et professeurs.
+Ce projet répond à une problématique courante dans les établissements scolaires :  
+la gestion manuelle des rendez-vous entraîne des conflits de planning, oublis et pertes de temps.
+
+L’application propose une plateforme centralisée pour la planification et le suivi des RDV.
 
 ---
 
-## 🧠 Fonctionnalités
+## 👥 Utilisateurs
 
-- ✅ Authentification (parents, professeurs, administrateur)
-- ✅ Prise de rendez-vous via une interface simple
-- ✅ Visualisation des rendez-vous par les enseignants
-- ✅ Administration des créneaux disponibles et vérification des conflits de rendez-vous
-- ✅ Base de données MySQL
+| Rôle         | Fonction principale                                      |
+|--------------|----------------------------------------------------------|
+| 👨‍👩‍👧‍👦 Parent     | Prendre un RDV avec un professeur pour un enfant        |
+| 👩‍🏫 Professeur | Proposer ou valider un RDV                            |
+| 🛠️ Admin      | Gérer les créneaux, les comptes, superviser le système |
+
+---
+
+## 💡 Fonctionnalités
+
+- 🔐 Authentification sécurisée (3 rôles)
+- 📅 Prise de rendez-vous (parent ↔ prof)
+- 📜 Ajout d’un motif lors de la création du RDV
+- 🔔 Notification visuelle des RDV en attente
+- 🔁 Possibilité d’accepter/refuser un RDV avec justification
+- 🧽 Masquage des RDV supprimés côté parent/prof
+- 📦 Archivage automatique des RDV expirés (non traités)
+- 🧠 Suivi de l’origine du RDV (créé par parent ou prof)
+- 🔧 Admin : gestion des créneaux et supervision (à venir)
 
 ---
 
 ## ⚙️ Technologies utilisées
 
-- HTML / CSS
-- PHP 
-- MySQL
-- EasyPHP Devserver
-- phpMyAdmin
+- HTML / CSS  
+- PHP procédural  
+- MySQL  
+- EasyPHP Devserver  
+- PhpMyAdmin  
+- GitHub
 
 ---
+
+## 🗂️ Structure du dépôt
+
+---
+
 ## 🗺️ MCD – Modèle Conceptuel de Données
 
-Le schéma de la base de données utilisée dans ce projet est le suivant :
+![MCD](./doc/mcd.png)
 
-- [MCD - Modèle Conceptuel de Données](./doc/mcd.png)
+---
 
+## 📄 Documentation jointe
 
-## 📄 Documentation disponible
+- ✅ [Cahier des charges](./doc/Cahier%20des%20charges.pdf)
+- ✅ [README.md](README.md)
+- 📁 [Base de données SQL](./bdd_rdv.sql)
 
-- [Cahier des charges](./doc/Cahier%20des%20charges.pdf)
+---
+
+## ✍️ Auteur
+
+**William Da Silva Ferreira Batista**  
+BTS SIO – SLAM – 2025  
