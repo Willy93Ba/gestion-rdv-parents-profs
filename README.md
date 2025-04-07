@@ -31,3 +31,8 @@ Il répond au besoin d’un établissement scolaire souhaitant automatiser la ge
 - phpMyAdmin
 
 ---
+## 🗺️ MCD – Modèle Conceptuel de Données
+
+Le schéma de la base de données utilisée dans ce projet est le suivant :
+
+![MCD du projet](./mcd.png)
