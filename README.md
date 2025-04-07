@@ -25,7 +25,7 @@ Il répond au besoin d’un établissement scolaire souhaitant automatiser la ge
 ## ⚙️ Technologies utilisées
 
 - HTML / CSS
-- PHP (procédural)
+- PHP 
 - MySQL
 - EasyPHP Devserver
 - phpMyAdmin
