@@ -7,6 +7,13 @@ UTILISATEUR (
   role : ENUM('parent','prof','admin')
 )
 
+ELEVE (
+  id_eleve : INT (PK),
+  nom : VARCHAR(50),
+  prenom : VARCHAR(50),
+  id_parent : INT (FK → UTILISATEUR)
+)
+
 CRENEAU (
   id_creneau : INT (PK),
   date_rdv : DATE,
@@ -18,5 +25,15 @@ RENDEZVOUS (
   id_rdv : INT (PK),
   id_parent : INT (FK → UTILISATEUR),
   id_prof : INT (FK → UTILISATEUR),
-  id_creneau : INT (FK → CRENEAU)
+  id_eleve : INT (FK → ELEVE),
+  id_creneau : INT (FK → CRENEAU),
+  statut : ENUM('en_attente','accepte','refuse'),
+  created_by : ENUM('parent','prof'),
+  motif : TEXT,
+  motif_refus : TEXT,
+  supprime_parent : BOOLEAN,
+  supprime_prof : BOOLEAN,
+  archive : BOOLEAN,
+  notif_parent : BOOLEAN,
+  notif_prof : BOOLEAN
 )
