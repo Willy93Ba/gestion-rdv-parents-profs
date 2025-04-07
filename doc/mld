@@ -1,0 +1,22 @@
+UTILISATEUR (
+  id_utilisateur : INT (PK),
+  nom : VARCHAR(50),
+  prenom : VARCHAR(50),
+  email : VARCHAR(100),
+  mot_de_passe : VARCHAR(255),
+  role : ENUM('parent','prof','admin')
+)
+
+CRENEAU (
+  id_creneau : INT (PK),
+  date_rdv : DATE,
+  heure_rdv : TIME,
+  disponible : BOOLEAN
+)
+
+RENDEZVOUS (
+  id_rdv : INT (PK),
+  id_parent : INT (FK → UTILISATEUR),
+  id_prof : INT (FK → UTILISATEUR),
+  id_creneau : INT (FK → CRENEAU)
+)
