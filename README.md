@@ -35,7 +35,7 @@ Il répond au besoin d’un établissement scolaire souhaitant automatiser la ge
 
 Le schéma de la base de données utilisée dans ce projet est le suivant :
 
-![MCD du projet](./mcd.png)
+![MCD du projet](.doc/mcd.png)
 
 
 ## 📄 Documentation disponible
