@@ -1,53 +1,76 @@
-# 📅 Gestion de rendez-vous Parents-Profs
+# 📅 Gestion des Rendez-vous Parents-Profs
 
 Projet E6 – BTS SIO SLAM – Session 2025  
-Application web permettant d’organiser efficacement les rencontres entre les parents d’élèves et les enseignants.
+Application web pour faciliter la prise et gestion de RDV entre parents et enseignants.
 
 ---
 
-## 🧠 Objectif du projet
+## 🎯 Objectif du projet
 
 Ce projet répond à une problématique courante dans les établissements scolaires :  
-la gestion manuelle des rendez-vous entraîne des conflits de planning, oublis et pertes de temps.
+la gestion manuelle des rendez-vous entraîne des conflits, oublis et pertes de temps.
 
-L’application propose une plateforme centralisée pour la planification et le suivi des RDV.
-
----
-
-## 👥 Utilisateurs
-
-| Rôle         | Fonction principale                                      |
-|--------------|----------------------------------------------------------|
-| 👨‍👩‍👧‍👦 Parent     | Prendre un RDV avec un professeur pour un enfant        |
-| 👩‍🏫 Professeur | Proposer ou valider un RDV                            |
-| 🛠️ Admin      | Gérer les créneaux, les comptes, superviser le système |
+👉 Cette application permet de :
+- Centraliser les demandes de RDV
+- Superviser les créneaux disponibles
+- Répartir les rôles entre parents, professeurs et administrateurs
 
 ---
 
-## 💡 Fonctionnalités
+## 👤 Utilisateurs
 
-- 🔐 Authentification sécurisée (3 rôles)
-- 📅 Prise de rendez-vous (parent ↔ prof)
-- 📜 Ajout d’un motif lors de la création du RDV
-- 🔔 Notification visuelle des RDV en attente
-- 🔁 Possibilité d’accepter/refuser un RDV avec justification
-- 🧽 Masquage des RDV supprimés côté parent/prof
-- 📦 Archivage automatique des RDV expirés (non traités)
-- 🧠 Suivi de l’origine du RDV (créé par parent ou prof)
-- 🔧 Admin : gestion des créneaux et supervision (à venir)
+| Rôle    | Fonction principale                                      |
+|---------|----------------------------------------------------------|
+| 👨‍👩‍👧‍👦 **Parent**    | Prendre un rendez-vous avec un professeur pour son enfant |
+| 👩‍🏫 **Professeur** | Gérer les RDV attribués après validation admin         |
+| 🛠️ **Admin**       | Gérer les créneaux, vérifier les demandes, surveiller le système |
+
+---
+
+## 🧠 Fonctionnalités clés
+
+- 🔐 Authentification sécurisée (Parent / Prof / Admin)
+- 📅 Prise de RDV sur créneaux paramétrables
+- 📝 Motif obligatoire lors de la création
+- 🔁 **Validation obligatoire par l'admin** avant que le prof voie le RDV
+- ✅ Validation finale par le professeur
+- 🔔 Notifications visuelles des demandes en attente
+- ❌ Possibilité de refuser un RDV (avec justification)
+- 🧽 Masquage des RDV supprimés côté prof/parent
+- 📦 Archivage automatique des RDV expirés
+- 👁️ Vue calendrier interactive côté admin (mois par mois)
 
 ---
 
 ## ⚙️ Technologies utilisées
 
-- HTML / CSS  
-- PHP procédural  
-- MySQL  
-- EasyPHP Devserver  
-- PhpMyAdmin  
+- HTML / CSS
+- PHP procédural
+- MySQL
+- EasyPHP Devserver 17
+- PhpMyAdmin
 - GitHub
 
 ---
+
+## 🗂️ Structure du projet
+
+- `connexion_bdd.php` → Connexion à la base
+- `login.php / traitement_login.php` → Authentification
+- `menu_parent.php / menu_prof.php / menu_admin.php` → Accueil par rôle
+- `prendre_rdv.php` → Demande de RDV par un parent
+- `gestion_rdv_admin.php` → Calendrier de gestion des RDV (admin)
+- `mes_rdv_prof.php` → Liste des RDV visibles pour les professeurs
+- `mes_rdv_parent.php` → Suivi des RDV par le parent
+- `gestion_creneaux.php` → Gestion simple des créneaux horaires
+
+---
+
+## 🧱 Base de données
+
+- ✅ 5 tables principales : `utilisateur`, `eleve`, `rendezvous`, `creneau`
+- 🔁 Relations maîtrisées entre parent/enfant/prof/rdv
+- 📌 Statuts gérés via `ENUM` : `en_attente`, `en_attente_prof`, `accepte`, `refuse`, `refuse_admin`
 
 ## 🗂️ Structure du dépôt
 
