@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 07 avr. 2025 à 22:52
+-- Généré le :  jeu. 15 mai 2025 à 19:45
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -53,7 +53,11 @@ INSERT INTO `creneau` (`id_creneau`, `date_rdv`, `heure_rdv`, `disponible`) VALU
 (11, '2025-04-11', '17:45:00', 0),
 (12, '2025-04-18', '18:00:00', 0),
 (13, '2025-04-19', '18:00:00', 1),
-(14, '2025-04-16', '17:00:00', 0);
+(14, '2025-04-16', '17:00:00', 0),
+(15, '2025-05-15', '17:00:00', 1),
+(16, '2025-05-24', '17:00:00', 1),
+(17, '2025-05-22', '17:00:00', 1),
+(18, '2025-06-15', '17:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -73,7 +77,8 @@ CREATE TABLE `eleve` (
 --
 
 INSERT INTO `eleve` (`id_eleve`, `nom`, `prenom`, `id_parent`) VALUES
-(1, 'Durand', 'Lucas', 2);
+(1, 'Durand', 'Lucas', 2),
+(2, 'Dupont', 'Emma', 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +92,7 @@ CREATE TABLE `rendezvous` (
   `id_prof` int(11) DEFAULT NULL,
   `id_creneau` int(11) DEFAULT NULL,
   `id_eleve` int(11) DEFAULT NULL,
-  `statut` enum('en_attente','accepte','refuse') DEFAULT 'en_attente',
+  `statut` enum('en_attente','en_attente_prof','accepte','refuse','refuse_admin') NOT NULL DEFAULT 'en_attente',
   `created_by` enum('parent','prof') NOT NULL DEFAULT 'parent',
   `motif` text,
   `motif_refus` text,
@@ -103,15 +108,19 @@ CREATE TABLE `rendezvous` (
 --
 
 INSERT INTO `rendezvous` (`id_rdv`, `id_parent`, `id_prof`, `id_creneau`, `id_eleve`, `statut`, `created_by`, `motif`, `motif_refus`, `supprime_parent`, `supprime_prof`, `archive`, `notif_parent`, `notif_prof`) VALUES
-(1, 2, 3, 1, 1, 'refuse', 'parent', NULL, NULL, 0, 1, 0, 0, 0),
+(1, 2, 3, 1, 1, 'refuse', 'parent', NULL, NULL, 1, 1, 0, 0, 0),
 (2, 2, 3, 4, 1, 'refuse', 'parent', NULL, NULL, 1, 1, 0, 0, 0),
-(3, 2, 3, 5, 1, 'accepte', 'parent', NULL, NULL, 0, 1, 0, 0, 0),
-(4, 2, 3, 6, 1, 'accepte', 'parent', NULL, NULL, 0, 1, 0, 0, 0),
+(3, 2, 3, 5, 1, 'accepte', 'parent', NULL, NULL, 1, 1, 0, 0, 0),
+(4, 2, 3, 6, 1, 'accepte', 'parent', NULL, NULL, 1, 1, 0, 0, 0),
 (5, 2, 3, 7, 1, 'refuse', 'parent', 'je veut pas', NULL, 1, 1, 0, 0, 0),
 (6, 2, 3, 8, 1, 'accepte', 'prof', 'TESTTTTT', NULL, 1, 1, 0, 0, 0),
-(7, 2, 3, 12, 1, 'accepte', 'prof', 'zdeaqeezeaeaz', NULL, 0, 1, 0, 0, 0),
+(7, 2, 3, 12, 1, 'accepte', 'prof', 'zdeaqeezeaeaz', NULL, 1, 1, 0, 0, 0),
 (8, 2, 3, 13, 1, 'refuse', 'prof', 'TEST', NULL, 1, 1, 0, 0, 0),
-(9, 2, 3, 14, 1, 'en_attente', 'parent', 'aeaeaeaea', NULL, 0, 1, 0, 0, 0);
+(9, 2, 3, 14, 1, 'en_attente', 'parent', 'aeaeaeaea', NULL, 1, 1, 0, 0, 0),
+(10, 2, 3, 15, 1, 'refuse', 'parent', 'JE PEUX PAS DéSOLé', NULL, 1, 1, 0, 0, 0),
+(11, 2, 3, 16, 2, 'refuse', 'parent', 'a', NULL, 0, 0, 0, 0, 0),
+(12, 2, 3, 17, 2, 'refuse_admin', 'parent', 'aaa', 'aa', 0, 0, 0, 0, 0),
+(13, 2, 3, 18, 1, 'en_attente', 'parent', 'aa', NULL, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -179,17 +188,17 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `creneau`
 --
 ALTER TABLE `creneau`
-  MODIFY `id_creneau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_creneau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `eleve`
 --
 ALTER TABLE `eleve`
-  MODIFY `id_eleve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_eleve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `rendezvous`
 --
 ALTER TABLE `rendezvous`
-  MODIFY `id_rdv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_rdv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
