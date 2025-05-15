@@ -86,7 +86,7 @@ la gestion manuelle des rendez-vous entraîne des conflits, oublis et pertes de 
 
 - ✅ [Cahier des charges](./doc/Cahier%20des%20charges.pdf)
 - ✅ [README.md](README.md)
-- 📁 [Base de données SQL](./bdd_rdv.sql)
+- 📁 [Base de données SQL](.sql/bdd_rdv.sql)
 
 ---
 
