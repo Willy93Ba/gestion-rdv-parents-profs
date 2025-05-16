@@ -89,6 +89,12 @@ la gestion manuelle des rendez-vous entraîne des conflits, oublis et pertes de 
 - 📁 [Base de données SQL](.sql/bdd_rdv.sql)
 
 ---
+## 🔗 Accès au site en ligne
+
+Le projet est hébergé en ligne gratuitement via InfinityFree.  
+Vous pouvez accéder à la plateforme à l'adresse suivante :
+
+👉 **[https://gestionrdv.infinityfreeapp.com](https://gestionrdv.infinityfreeapp.com)**
 
 ## ✍️ Auteur
 
